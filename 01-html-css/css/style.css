@@ -154,7 +154,7 @@ ul.location li {
     border-radius: 3px;
     background-color: #B99566;
     text-align: center;
-    font-size: 10px;
+    font-size: 13px;
     color: white;
 }
 
@@ -165,3 +165,7 @@ ul.location li {
     padding-left: 10px;
 }
 
+.gourmet .description {
+    padding-left: 10px;
+    padding-top: 10px;
+}
