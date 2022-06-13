@@ -169,3 +169,49 @@ ul.location li {
     padding-left: 10px;
     padding-top: 10px;
 }
+
+footer {
+    height: 100%;
+}
+footer nav {
+    background-color: #54514C;
+}
+footer .wrapper-footer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+footer .footer-content {
+    border-color: white;
+    border-radius: 2px;
+    border-left-width: thin;
+    border-style: solid;
+    padding: 3px 20px;
+    margin: 10px;
+    color: white;
+}
+
+footer .footer-content:hover {
+    color: #54514C;
+    background-color: white;
+}
+
+footer .footer-content a {
+    color: inherit;
+}
+
+footer .copyright {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+footer .logo {
+    width: 200px;
+    height: 25px;
+    margin: 10px 0 10px 0;
+}
