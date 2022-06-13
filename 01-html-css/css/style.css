@@ -122,4 +122,46 @@ main {
     padding-right: 30px;
 }
 
+.wrapper-gourmet {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+.wrapper-gourmet li {
+    width: 49%;
+    padding: 5px;
+}
+
+.shop-name {
+    margin-bottom: 0;
+}
+
+ul.location {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul.location li {
+    padding: 4px 7px;
+    margin-right: 3px;
+    height: 100%;
+    width: auto;
+    border-radius: 3px;
+    background-color: #B99566;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+}
+
+.shop-info {
+    border-left: red;
+    border-left-style: inset;
+    border-left-width: thick;
+    padding-left: 10px;
+}
 
