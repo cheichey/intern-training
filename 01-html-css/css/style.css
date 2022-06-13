@@ -1,3 +1,9 @@
+html body {
+    margin: 0;
+}
+body {
+    padding-top: 80px;
+}
 a {
     text-decoration: none;
 }
@@ -8,27 +14,38 @@ img, button{
 }
 
 header {
-    height: 70px;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
+    z-index: 999;
+    background-color: white;
+}
+
+.header-content {
+    height: 100%;
 }
 
 .logo {
     width: 250px;
-    height: 35px;
-    margin: 10px 0 0 20px;
-}
-
-.header-content {
-    margin: 20px 0 0 5px;
+    height: 31px;
+    margin-left: 20px;
 }
 
 .wrapper-header {
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
 .wrapper-navigation {
-    display: flex;
     margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-content {
@@ -39,16 +56,16 @@ header {
     margin: 0 0 0 0;
     padding: 5px;
     text-align: center;
-    align-items: center;
     justify-content: space-around;
     border-radius: 3px;
+    align-items: center;
 }
 
 .nav-content:hover {
     background-color: #b99566;
 }
 .nav-content a {
-    color: #54514c;
+    color: #A5A4A1;
 }
 .nav-content a:hover {
     color: white;
