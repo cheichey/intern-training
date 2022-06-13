@@ -1,6 +1,9 @@
 html body {
     margin: 0;
 }
+ul {
+    list-style: none;
+}
 body {
     padding-top: 80px;
 }
@@ -50,7 +53,6 @@ header {
 
 .nav-content {
     display: inline-flex;
-    list-style: none;
     width: 100px;
     height: 20px;
     margin: 0 0 0 0;
@@ -71,4 +73,53 @@ header {
 .nav-content a {
     color: inherit;
 }
+main {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.wrapper-main {
+    width: 80%;
+}
+
+.element-header {
+    margin-top: 20px;
+    margin-bottom: 0;
+    background-color: #b99566;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: normal;
+    height: 100%;
+}
+
+.information ul {
+    margin-top: 0;
+    padding: 0;
+}
+
+.information ul li {
+    height: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.information-content-odd {
+    background-color: white;
+}
+
+.information-content-even {
+    background-color: #F5F3F0;
+}
+
+.information ul li time {
+    padding-right: 30px;
+}
+
 
