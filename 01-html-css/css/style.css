@@ -61,12 +61,14 @@ header {
     align-items: center;
 }
 
+.nav-content {
+    color: #9C9B98;
+}
 .nav-content:hover {
     background-color: #b99566;
-}
-.nav-content a {
-    color: #A5A4A1;
-}
-.nav-content a:hover {
     color: white;
 }
+.nav-content a {
+    color: inherit;
+}
+
