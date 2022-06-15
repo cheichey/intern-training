@@ -2,6 +2,9 @@
   "name": "05-ajax-promise-axios",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "execute": "npx tsc && node .\\main.js"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
