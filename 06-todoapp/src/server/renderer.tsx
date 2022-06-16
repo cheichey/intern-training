@@ -1,12 +1,12 @@
 import ReactDOMServer from "react-dom/server"
 import {StaticRouter} from "react-router-dom/server";
-import App from "../client/components/App";
+import App from "../client/App";
 type Props = {
     url: string;
     pageData: unknown;
 }
 
-const createHTML = async ({url, pageData}: Props) => {
+export const createHTML = async ({url, pageData}: Props) => {
     const pageElementHTML = ReactDOMServer.renderToString(
         <StaticRouter location={url}>
             <App serverData={pageData} />
@@ -27,5 +27,3 @@ const createHTML = async ({url, pageData}: Props) => {
         </html>
     `
 }
-
-export default createHTML;

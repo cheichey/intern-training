@@ -1,6 +1,6 @@
 import express from "express";
 import routes from "../routes";
-import createHTML from "./renderer";
+import { createHTML } from "./renderer";
 
 const app = express();
 
