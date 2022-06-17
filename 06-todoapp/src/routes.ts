@@ -1,6 +1,6 @@
 import {Request} from "express";
 import {FC} from "react";
-import Home from "./client/components/Home";
+import TodoPages from "./client/components/pages/TodoPages";
 
 export type PageProps = {
     path: string;
@@ -13,7 +13,7 @@ const routes: {[key: string]: PageProps} = {
     "/todo": {
         path: "/todo",
         buildPath: () => '/todo',
-        component: Home,
+        component: TodoPages,
         getServerSideProps: (req: Request) => {return {id: "0", name: "aaa"}}
     }
 }

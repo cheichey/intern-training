@@ -1,7 +1,7 @@
 import {ButtonHTMLAttributes, FC} from "react";
-import withStyles from "isomorphic-style-loader/withStyles";
 import s from "./style.css";
 import {classNameFactory} from "../../../utils/classNameFactory";
+import injectTSFriendlyStyles from "../../../utils/injectTSFriendlyStyles";
 
 export type ButtonProps = {
     size: "s" | "m" | "l" | "xl";
@@ -16,4 +16,4 @@ const Button: FC<ButtonProps> = (props: ButtonProps) => {
     )
 }
 
-export default withStyles(s)(Button as FC<ButtonProps>);
+export default injectTSFriendlyStyles<FC<ButtonProps>>(s, Button);
