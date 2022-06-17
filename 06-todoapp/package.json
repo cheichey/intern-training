@@ -4,10 +4,10 @@
   "main": "src/server/index.ts",
   "license": "MIT",
   "scripts": {
-    "start:dev": "webpack --config webpack.config.js --watch & nodemon ./dist/server.js",
-    "build": "webpack --config webpack.config.js",
-    "start": "nodemon ./dist/server.js",
-    "generate": "npm run build && node ./dist/ssg.js"
+    "client:dev": "webpack --config webpack.config.js --watch",
+    "client:prod": "webpack --config webpack.config.js",
+    "server:dev": "nodemon ./dist/server.js",
+    "server:prod": "node ./dist/server.js"
   },
   "dependencies": {
     "assert": "^2.0.0",
@@ -30,6 +30,9 @@
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.3",
+    "css-loader": "^6.7.1",
+    "css-modules-typescript-loader": "^4.0.1",
+    "isomorphic-style-loader": "^5.3.2",
     "nodemon": "^2.0.16",
     "ts-loader": "^9.3.0",
     "ts-node": "^10.8.1",

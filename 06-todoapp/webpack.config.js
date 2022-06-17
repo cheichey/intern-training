@@ -26,6 +26,21 @@ module.exports = {
                     },
                 },
             },
+            {
+                test: /\.css$/,
+                use: [
+                    "isomorphic-style-loader",
+                    "css-modules-typescript-loader",
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                            esModule: false
+                        }
+                    },
+                ]
+            }
         ],
     },
     resolve: {
