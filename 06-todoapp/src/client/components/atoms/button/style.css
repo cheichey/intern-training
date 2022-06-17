@@ -1,14 +1,22 @@
 .button {
-    display: inline-block;
-    padding: 9px 19px;
-    border: 1px solid;
-    background-color: #00d6b0;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 13px;
-    line-height: 1.2;
+    /* ユーザーエージェントスタイルシートをリセット */
+    background-color: #60a8ff;
+    color: inherit;
     appearance: none;
+    font-size: 1em;
+    line-height: 1.2;
+    padding: 0.5em var(--padding-x);
+    border-width: 2px;
+    border-style: solid;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    --padding-x: 1.2em;
+    border-color: black;
+    border-radius: 5px;
+
 }
+
 .s {
     width: 60px;
     height: 30px;

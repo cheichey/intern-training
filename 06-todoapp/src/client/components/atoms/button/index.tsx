@@ -11,6 +11,7 @@ const Button: FC<ButtonProps> = (props: ButtonProps) => {
     return (
         <button
             className={classNameFactory(s.button, s[size])}
+            type="button"
             {...props}
         >{children}</button>
     )
