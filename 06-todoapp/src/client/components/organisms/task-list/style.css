@@ -1,0 +1,12 @@
+.list {
+    list-style: none;
+}
+
+.list-wrapper {
+    display: flex;
+    flex-flow: column;
+}
+
+.content {
+    margin-bottom: 10px;
+}
