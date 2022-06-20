@@ -5,7 +5,7 @@ on:
       - master
     paths:
       - '**.yaml'
-      - '**.tsx'
+      - '/06-todoapp'
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
