@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "src/server/index.ts",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "webpack --config webpack.config.js --watch",
     "build": "webpack --config webpack.config.js",
