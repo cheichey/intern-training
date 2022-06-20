@@ -1,0 +1,27 @@
+.card {
+    display: inline-block;
+    border-color: white;
+    border-style: solid;
+    padding: 1%;
+    background-color: #ff92e6;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+
+}
+
+.card-content {
+    margin-right: auto;
+    margin-left: 10px;
+    margin-top: auto;
+}
+
+.card-header {
+    font-size: 10px;
+    margin-top: auto;
+    padding: 0;
+}

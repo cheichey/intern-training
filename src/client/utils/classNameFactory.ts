@@ -1,0 +1,1 @@
+export const classNameFactory = (...args: string[]) => args.join(" ");
