@@ -1,5 +1,7 @@
 .list {
     list-style: none;
+    background-color: #ffc789;
+
 }
 
 .list-wrapper {
@@ -7,6 +9,10 @@
     flex-flow: column;
 }
 
-.content {
+.list-content {
     margin-bottom: 10px;
+}
+
+.add-form {
+    padding-left: 10px;
 }

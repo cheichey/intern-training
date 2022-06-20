@@ -1,12 +1,13 @@
 import {Request} from "express";
 import {FC} from "react";
 import TodoPages from "./client/components/pages/TodoPages";
+import {TodoService} from "./server/todo/todo.service";
 
 export type PageProps = {
     path: string;
     buildPath: (id?: string) => string;
     component: FC;
-    getServerSideProps: (req: Request) => unknown;
+    getServerSideProps: (req: Request, service: any) => unknown;
 }
 
 const routes: {[key: string]: PageProps} = {
@@ -14,7 +15,7 @@ const routes: {[key: string]: PageProps} = {
         path: "/todo",
         buildPath: () => '/todo',
         component: TodoPages,
-        getServerSideProps: (req: Request) => {return {id: "0", name: "aaa"}}
+        getServerSideProps: (req: Request, todoService: TodoService) => {return todoService.getAll()}
     }
 }
 

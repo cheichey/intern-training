@@ -15,6 +15,7 @@ const App: FC<{serverData?: any}> = ({serverData = null})    => {
                             path={path}
                             element={
                                 <PageWrapper
+                                    key={path}
                                     PageComponent={component}
                                     serverData={serverData}
                                 />
