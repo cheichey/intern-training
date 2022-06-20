@@ -4,10 +4,10 @@
   "main": "src/server/index.ts",
   "license": "MIT",
   "scripts": {
-    "client:dev": "webpack --config webpack.config.js --watch",
-    "client:prod": "webpack --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js --watch",
+    "build": "webpack --config webpack.config.js",
     "server:dev": "nodemon ./dist/server.js",
-    "server:prod": "node ./dist/server.js"
+    "server:start": "node ./dist/server.js"
   },
   "dependencies": {
     "assert": "^2.0.0",
