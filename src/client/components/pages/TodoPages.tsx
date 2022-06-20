@@ -14,7 +14,7 @@ let maxTaskId;
 const useLogic = (initialData: TaskEntity[]) => {
     const [tasks, setTasks] = useState<TaskEntity[]>(initialData);
     const [input, setInput] = useState<string>(null);
-    useEffect(() => { maxTaskId = initialData.length - 1;}, [])
+    useEffect(() => { maxTaskId = initialData.slice(-1)[0].id}, [])
     const onChangeInput: React.ChangeEventHandler = (e: React.ChangeEvent) => {
         if(!(e.target instanceof HTMLInputElement)) return;
         setInput(e.target.value);
@@ -34,7 +34,6 @@ const useLogic = (initialData: TaskEntity[]) => {
 
     const onSaveButtonClick: React.MouseEventHandler = (e) => {
         if(!(e.target instanceof HTMLButtonElement)) return;
-        console.log(tasks);
         axios.post('/todo', tasks);
     }
     return {onChangeInput, onAddButtonClick, tasks, onFinishButtonClick, onSaveButtonClick};
