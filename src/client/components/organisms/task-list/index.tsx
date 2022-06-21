@@ -1,4 +1,4 @@
-import React, {ChangeEventHandler, FC, MouseEventHandler} from "react";
+import React, {ChangeEventHandler, FC, FormEventHandler, MouseEventHandler} from "react";
 import injectTSFriendlyStyles from "../../../utils/injectTSFriendlyStyles";
 import s from "./style.css"
 import {TaskEntity} from "../../../../entity/task";
@@ -11,17 +11,26 @@ import Button from "../../atoms/button";
 export type TaskListProps = {
     list?: TaskEntity[];
     className?: string;
-    onAddButtonClick: MouseEventHandler
+    onAddButtonClick: MouseEventHandler | FormEventHandler
     onFinishButtonClick: MouseEventHandler
     onChangeInput: ChangeEventHandler
     onSaveButtonClick: MouseEventHandler
+    onSubmit: FormEventHandler
 }
 const TaskList: FC<TaskListProps> = (props) => {
-    const {list, className, onAddButtonClick, onFinishButtonClick, onChangeInput, onSaveButtonClick} = props;
+    const {list, className, onAddButtonClick, onFinishButtonClick, onChangeInput, onSaveButtonClick, onSubmit} = props;
     return (
         <div>
             <div className={s["add-form"]}>
-                <Form buttonText="追加" onClick={(e) => onAddButtonClick(e)} onChange={(e) => onChangeInput(e) }/>
+                <Form
+                    buttonText="追加"
+                    onClick={(e) => onAddButtonClick(e)}
+                    onChange={(e) => onChangeInput(e) }
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        onSubmit(e);
+                    }}
+                />
             </div>
             <ul className={toClassName(s["list"], className)}>
                 <H2>タスク一覧</H2>

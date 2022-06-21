@@ -10,12 +10,13 @@ export type FormProps = {
     className?: string;
     onClick:  React.MouseEventHandler;
     onChange: React.ChangeEventHandler;
+    onSubmit: React.FormEventHandler;
 }
 
 const Form: FC<FormProps> = (props) => {
-    const {buttonText, className, onClick, onChange} = props;
+    const {buttonText, className, onClick, onChange, onSubmit} = props;
     return (
-        <form className={toClassName(s.form, className)}>
+        <form className={toClassName(s.form, className)} onSubmit={onSubmit} >
             <div>
                 <Input type="text" onChange={onChange}/>
                 <Button size="m" onClick={onClick}>{buttonText}</Button>
