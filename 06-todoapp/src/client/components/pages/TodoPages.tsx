@@ -9,22 +9,23 @@ import axios from "axios";
 export type TodoPageProps = {
     data?: TaskEntity[];
 }
-let maxTaskId;
+let maxTaskId = 0;
+console.log('called1')
 
 const useLogic = (initialData: TaskEntity[]) => {
     const [tasks, setTasks] = useState<TaskEntity[]>(initialData);
     const [input, setInput] = useState<string>(null);
     useEffect(() => {
-        if (tasks) maxTaskId = 0;
-        else maxTaskId = tasks.slice(-1)[0].id;
+        if (!tasks.length) return;
+        maxTaskId = tasks.slice(-1)[0].id;
         }, []
     )
     const onChangeInput: React.ChangeEventHandler = (e: React.ChangeEvent) => {
         if(!(e.target instanceof HTMLInputElement)) return;
         setInput(e.target.value);
     }
-    const onAddButtonClick: React.MouseEventHandler = (e: React.MouseEvent) => {
-        if(!(e.target instanceof HTMLButtonElement)) return;
+    const addTask: React.MouseEventHandler | React.FormEventHandler = (e) => {
+        if(!(e.target instanceof HTMLButtonElement || e.target  instanceof HTMLFormElement)) return;
         maxTaskId++;
         const newTask = new TaskEntity(maxTaskId, input);
         setTasks(tasks.concat(newTask));
@@ -36,23 +37,24 @@ const useLogic = (initialData: TaskEntity[]) => {
         setTasks(tasks.filter((task) => task.id !== targetTaskId));
     }
 
-    const onSaveButtonClick: React.MouseEventHandler = (e) => {
+    const onSave: React.MouseEventHandler = (e) => {
         if(!(e.target instanceof HTMLButtonElement)) return;
         axios.post('/todo', tasks).then(() => window.alert("保存されました。"));
     }
-    return {onChangeInput, onAddButtonClick, tasks, onFinishButtonClick, onSaveButtonClick};
+    return {onChangeInput, addTask, tasks, onFinishButtonClick, onSave};
 }
 
 const TodoPages: FC<TodoPageProps> = (props) => {
     const {data} = props;
-    const {onChangeInput, onAddButtonClick, tasks, onFinishButtonClick, onSaveButtonClick} = useLogic(data);
+    const {onChangeInput, addTask, tasks, onFinishButtonClick, onSave} = useLogic(data);
     return <>
         <H1>TodoList</H1>
         <TaskList
-            list={tasks} onAddButtonClick={onAddButtonClick}
+            list={tasks} onAddButtonClick={addTask}
             onFinishButtonClick={onFinishButtonClick}
             onChangeInput={onChangeInput}
-            onSaveButtonClick={onSaveButtonClick}
+            onSaveButtonClick={onSave}
+            onSubmit={addTask}
         />
     </>
 }
