@@ -9,7 +9,7 @@ import Form from "../../molecules/form";
 import Button from "../../atoms/button";
 
 export type TaskListProps = {
-    list: TaskEntity[];
+    list?: TaskEntity[];
     className?: string;
     onAddButtonClick: MouseEventHandler
     onFinishButtonClick: MouseEventHandler
@@ -26,13 +26,17 @@ const TaskList: FC<TaskListProps> = (props) => {
             <ul className={toClassName(s["list"], className)}>
                 <H2>タスク一覧</H2>
                 <div className={s["list-wrapper"]}>
-                    {list.map((task) => {
-                        return (
-                            <li className={s["list-content"]} key={task.id}>
-                                <Task name={task.name} onClick={(e) => onFinishButtonClick(e)} id={task.id}></Task>
-                            </li>
-                        )
-                    })}
+                    {
+                        (() => {
+                            if(!list) return null;
+                            return list.map((task) => {
+                                return (
+                                    <li className={s["list-content"]} key={task.id}>
+                                        <Task name={task.name} onClick={(e) => onFinishButtonClick(e)} id={task.id}></Task>
+                                    </li>
+                                )
+                            })})()
+                    }
                 </div>
             </ul>
             <div><Button size="l" onClick={onSaveButtonClick}>保存</Button></div>
