@@ -1,0 +1,1 @@
+export const toClassName = (...args: string[]) => args.join(" ");

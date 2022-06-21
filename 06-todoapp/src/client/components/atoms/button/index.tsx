@@ -1,6 +1,6 @@
 import React, {ButtonHTMLAttributes, FC, MouseEventHandler} from "react";
 import s from "./style.css";
-import {classNameFactory} from "../../../utils/classNameFactory";
+import {toClassName} from "../../../utils/toClassName";
 import injectTSFriendlyStyles from "../../../utils/injectTSFriendlyStyles";
 
 export type ButtonProps = {
@@ -12,7 +12,7 @@ const Button: FC<ButtonProps> = (props: ButtonProps) => {
     return (
         <button
             id="noob"
-            className={classNameFactory(s.button, s[size])}
+            className={toClassName(s.button, s[size])}
             type="button"
             onClick={onClick}
             {...props}

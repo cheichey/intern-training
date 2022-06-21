@@ -1,4 +1,4 @@
-import {classNameFactory} from "../../../utils/classNameFactory";
+import {toClassName} from "../../../utils/toClassName";
 import s from "./style.css"
 import injectTSFriendlyStyles from "../../../utils/injectTSFriendlyStyles";
 import {FC, HTMLAttributes} from "react";
@@ -8,7 +8,7 @@ const H1: FC<H1Props> = (props: H1Props) => {
     const {children, className} = props;
     return (
         <h1
-            className={classNameFactory(s.h1, className)}
+            className={toClassName(s.h1, className)}
             {...props}
         >{children}
         </h1>
