@@ -7,14 +7,18 @@ import H1 from "../atoms/h1";
 import axios from "axios";
 
 export type TodoPageProps = {
-    data: TaskEntity[];
+    data?: TaskEntity[];
 }
 let maxTaskId;
 
 const useLogic = (initialData: TaskEntity[]) => {
     const [tasks, setTasks] = useState<TaskEntity[]>(initialData);
     const [input, setInput] = useState<string>(null);
-    useEffect(() => { maxTaskId = initialData.slice(-1)[0].id}, [])
+    useEffect(() => {
+        if (tasks) maxTaskId = 0;
+        else maxTaskId = tasks.slice(-1)[0].id;
+        }, []
+    )
     const onChangeInput: React.ChangeEventHandler = (e: React.ChangeEvent) => {
         if(!(e.target instanceof HTMLInputElement)) return;
         setInput(e.target.value);
@@ -34,7 +38,7 @@ const useLogic = (initialData: TaskEntity[]) => {
 
     const onSaveButtonClick: React.MouseEventHandler = (e) => {
         if(!(e.target instanceof HTMLButtonElement)) return;
-        axios.post('/todo', tasks);
+        axios.post('/todo', tasks).then(() => window.alert("保存されました。"));
     }
     return {onChangeInput, onAddButtonClick, tasks, onFinishButtonClick, onSaveButtonClick};
 }
