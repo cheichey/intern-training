@@ -4,7 +4,7 @@ import s from "./style.css"
 import {TaskEntity} from "../../../../entity/task";
 import Task from "../../molecules/task";
 import H2 from "../../atoms/h2";
-import {classNameFactory} from "../../../utils/classNameFactory";
+import {toClassName} from "../../../utils/toClassName";
 import Form from "../../molecules/form";
 import Button from "../../atoms/button";
 
@@ -23,7 +23,7 @@ const TaskList: FC<TaskListProps> = (props) => {
             <div className={s["add-form"]}>
                 <Form buttonText="追加" onClick={(e) => onAddButtonClick(e)} onChange={(e) => onChangeInput(e) }/>
             </div>
-            <ul className={classNameFactory(s["list"], className)}>
+            <ul className={toClassName(s["list"], className)}>
                 <H2>タスク一覧</H2>
                 <div className={s["list-wrapper"]}>
                     {list.map((task) => {
