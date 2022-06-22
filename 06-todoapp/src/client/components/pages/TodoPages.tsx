@@ -10,7 +10,6 @@ export type TodoPageProps = {
     data?: TaskEntity[];
 }
 let maxTaskId = 0;
-console.log('called1')
 
 const useLogic = (initialData: TaskEntity[]) => {
     const [tasks, setTasks] = useState<TaskEntity[]>(initialData);
