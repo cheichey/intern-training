@@ -1,26 +1,17 @@
-import React, {useState} from 'react';
-import logo from '../logo.svg';
-import './App.css';
+import React from 'react';
 import {Counter} from "./Counter";
+import {useSelector} from "../store";
+import {useDispatch} from "react-redux";
 
-const useLogic = (): [number, () => void, () => void] => {
-  const [count, setCount] = useState<number>(0);
-  const addCount = () => {
-    setCount(count + 1);
-  }
-  const subCount = () => {
-    setCount(count - 1);
-  }
 
-  return [count, addCount, subCount]
-}
 function App() {
-  const [count, addCount, subCount] = useLogic();
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
   return <div>
     <Counter
       count={count}
-      onClickAddButton={addCount}
-      onClickSubButton={subCount}
+      onClickAddButton={dispatch}
+      onClickSubButton={dispatch}
     />
   </div>;
 }

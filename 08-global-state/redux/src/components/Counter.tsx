@@ -1,20 +1,22 @@
 import {FC} from "react";
+import {Dispatch} from "redux";
+import {add, sub} from "../counterSlice";
 
 export type CounterProps = {
   count: number;
-  onClickAddButton: () => void;
-  onClickSubButton: () => void;
+  onClickAddButton: Dispatch;
+  onClickSubButton: Dispatch;
 }
 export const Counter: FC<CounterProps> = (props) => {
   const {count, onClickAddButton, onClickSubButton} = props;
   return <div>
     <h2>Count: {count}</h2>
     <button
-      onClick={() => onClickAddButton()}
+      onClick={() => onClickAddButton(add())}
       type="button"
     >Add</button>
     <button
-    onClick={() => onClickSubButton()}
+    onClick={() => onClickSubButton(sub())}
     type="button"
     >
       Sub
