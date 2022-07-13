@@ -1,17 +1,27 @@
 import React from 'react';
 import {Counter} from "./Counter";
-import {useSelector} from "../store";
-import {useDispatch} from "react-redux";
+import {useRecoilValue, useSetRecoilState} from "recoil";
+import {counterState} from "../recoil/atoms/CounterAtom";
 
+const useLogic = (): [number, () => void, () => void] => {
+  const count = useRecoilValue(counterState)
+  const setCount = useSetRecoilState(counterState);
+  const addCount = () => {
+    setCount(count + 1);
+  }
+  const subCount = () => {
+    setCount(count - 1);
+  }
 
+  return [count, addCount, subCount]
+}
 function App() {
-  const count = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
+  const [count, add, sub] = useLogic()
   return <div>
     <Counter
       count={count}
-      onClickAddButton={dispatch}
-      onClickSubButton={dispatch}
+      onClickAddButton={add}
+      onClickSubButton={sub}
     />
   </div>;
 }
